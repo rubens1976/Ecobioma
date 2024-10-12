@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Projetos - EcoBioma{% endblock %}
+
+{% block content %}
+<h2>Projetos Ambientais</h2>
+
+<!-- Tabela para exibir projetos -->
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nome do Projeto</th>
+        <th>Descrição</th>
+        <th>Status</th>
+        <th>Ações</th>
+    </tr>
+    {% for projeto in projetos %}
+    <tr>
+        <td>{{ projeto.id }}</td>
+        <td>{{ projeto.nome }}</td>
+        <td>{{ projeto.descricao }}</td>
+        <td>{{ projeto.status }}</td>
+        <td>
+            <form action="/delete_projeto/{{ projeto.id }}" method="post" onsubmit="return confirmarExclusao();">
+                <button type="submit">Excluir</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<!-- Formulário para adicionar novos projetos -->
+<h3>Adicionar Novo Projeto</h3>
+<form method="POST" onsubmit="return validarFormulario();">
+    <label for="nome">Nome do Projeto:</label>
+    <input type="text" id="nome" name="nome" required>
+    <br>
+    <label for="descricao">Descrição:</label>
+    <input type="text" id="descricao" name="descricao" required>
+    <br>
+    <label for="status">Status:</label>
+    <select id="status" name="status" required>
+        <option value="Em Andamento">Em Andamento</option>
+        <option value="Concluído">Concluído</option>
+    </select>
+    <br>
+    <button type="submit">Adicionar Projeto</button>
+</form>
+{% endblock %}
