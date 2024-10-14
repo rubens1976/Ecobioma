@@ -1,40 +1,39 @@
 /* Reset básico */
-/* Remove margens e espaçamentos padrões de todos os elementos 
-   para garantir consistência entre diferentes navegadores */
-   * {
+/* Remove margens e paddings padrão de todos os elementos, garantindo consistência entre diferentes navegadores */
+* {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Garante que padding e bordas sejam inclusos na largura/altura total dos elementos */
+    box-sizing: border-box; /* Garante que padding e bordas sejam incluídos no tamanho total dos elementos */
 }
 
 /* Definições gerais */
-/* Estilização do corpo da página */
+/* Estilização geral do corpo da página */
 body {
-    font-family: Arial, sans-serif; /* Define a fonte da página */
-    background-color: #0a0a0a; /* Define o fundo preto */
-    color: #fff; /* Define o texto branco */
-    margin: 0;
-    padding: 0;
-    text-align: center; /* Centraliza o texto dentro do body */
-    min-height: 100vh; /* Garante que o corpo ocupe no mínimo 100% da altura da tela */
-    display: flex; /* Usa flexbox para estruturar o layout */
-    flex-direction: column; /* Organiza os elementos em uma coluna */
+    font-family: Arial, sans-serif; /* Define a fonte padrão do corpo */
+    background-color: #0a0a0a; /* Define um fundo preto */
+    color: #fff; /* Define a cor do texto como branco */
+    margin: 0; /* Remove margens padrão */
+    padding: 0; /* Remove padding padrão */
+    text-align: center; /* Centraliza o texto por padrão */
+    min-height: 100vh; /* Garante que o corpo ocupe pelo menos 100% da altura da janela */
+    display: flex; /* Usa flexbox para organizar o layout */
+    flex-direction: column; /* Alinha os elementos em uma coluna de cima para baixo */
 }
 
 /* Cabeçalho */
-/* Estilização do cabeçalho da página */
+/* Estilização do cabeçalho que contém o logo e o título */
 header {
-    background-color: #2F855A; /* Define o fundo do cabeçalho como verde escuro */
-    color: white; /* Define a cor do texto como branco */
-    display: flex; /* Usa flexbox para organizar os elementos dentro do cabeçalho */
-    align-items: center; /* Alinha verticalmente os elementos no centro */
+    background-color: #2F855A; /* Fundo verde escuro */
+    color: white; /* Cor do texto branca */
+    display: flex; /* Usa flexbox para alinhar o conteúdo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
     justify-content: center; /* Centraliza o conteúdo horizontalmente */
-    padding: 20px; /* Adiciona espaçamento interno */
+    padding: 20px; /* Adiciona espaçamento interno no cabeçalho */
 }
 
 .logo-container {
-    display: flex; /* Define um layout flex para organizar a logo e o texto */
-    align-items: center; /* Alinha os itens verticalmente no centro */
+    display: flex; /* Usa flexbox para alinhar a logo e o texto */
+    align-items: center; /* Alinha verticalmente o conteúdo no centro */
     text-align: left; /* Alinha o texto à esquerda */
 }
 
@@ -46,91 +45,99 @@ header {
 
 h1 {
     font-size: 2.5em; /* Define o tamanho da fonte do título */
-    color: #A3E635; /* Define uma cor verde claro para o título */
+    color: #A3E635; /* Verde claro para o título */
 }
 
 /* Container principal com barra lateral e conteúdo */
-/* Define o layout da página com uma barra lateral e uma área de conteúdo principal */
+/* Estiliza o layout principal com a barra lateral e o conteúdo */
 .container {
-    display: grid; /* Usa CSS Grid para organizar a estrutura em colunas */
-    grid-template-columns: 250px 1fr; /* Define duas colunas: 250px para a barra lateral e 1fr para o conteúdo */
-    gap: 20px; /* Adiciona um espaçamento de 20px entre as colunas */
-    flex-grow: 1; /* Faz o container crescer para preencher o espaço vertical */
-    padding: 20px; /* Adiciona espaçamento interno ao container */
+    display: grid; /* Usa CSS Grid para dividir a página em duas colunas */
+    grid-template-columns: 250px 1fr; /* Primeira coluna com 250px e a segunda ocupando o restante */
+    gap: 20px; /* Define um espaçamento entre as colunas */
+    flex-grow: 1; /* Faz o container crescer verticalmente, ocupando o espaço disponível */
+    padding: 20px; /* Adiciona espaçamento interno */
 }
 
 /* Barra lateral colapsável */
-/* Estiliza a barra lateral que pode ser colapsada */
+/* Estilização da barra lateral onde o menu ficará */
 .sidebar {
-    background-color: #38A169; /* Define o fundo da barra lateral como verde claro */
-    padding: 20px; /* Adiciona espaçamento interno */
-    transition: all 0.3s ease; /* Aplica uma transição suave ao colapsar/expandir */
+    background-color: #38A169; /* Fundo verde claro */
+    padding: 20px; /* Adiciona espaçamento interno à barra lateral */
+    transition: all 0.3s ease; /* Adiciona uma transição suave quando a barra lateral colapsa */
 }
 
 /* Menu de navegação */
-/* Estilização da lista de navegação no menu lateral */
+/* Estilização da lista do menu */
 .menu {
-    list-style-type: none; /* Remove os marcadores padrão das listas */
-    padding: 0; /* Remove o padding padrão da lista */
+    list-style-type: none; /* Remove os marcadores padrão da lista */
+    padding: 0; /* Remove padding padrão */
 }
 
-/* Estilo dos itens do menu */
+/* Estilização dos itens do menu */
 .menu li {
-    margin-bottom: 10px; /* Adiciona um espaço entre cada item do menu */
-    position: relative; /* Define a posição relativa para que o submenu seja posicionado corretamente */
+    margin-bottom: 10px; /* Adiciona espaçamento inferior entre os itens do menu */
+    position: relative; /* Necessário para posicionar corretamente o submenu */
 }
 
 .menu li a {
-    color: white; /* Define a cor do texto dos links como branco */
+    color: white; /* Cor do texto branca */
     text-decoration: none; /* Remove o sublinhado dos links */
-    display: block; /* Faz o link ocupar toda a área do item do menu */
+    display: block; /* Faz o link ocupar toda a área disponível do item */
     padding: 10px; /* Adiciona espaçamento interno ao link */
-    background-color: #2F855A; /* Define o fundo dos links como verde escuro */
-    border-radius: 5px; /* Aplica bordas arredondadas */
-    text-align: center; /* Centraliza o texto do link */
-    transition: background-color 0.3s ease; /* Aplica uma transição suave no hover */
+    background-color: #2F855A; /* Fundo verde escuro */
+    border-radius: 5px; /* Adiciona bordas arredondadas */
+    text-align: center; /* Centraliza o texto dentro do link */
+    transition: background-color 0.3s ease; /* Adiciona uma transição suave no hover */
 }
 
 /* Efeito hover nos links do menu */
 .menu li a:hover {
-    background-color: #A3E635; /* Muda a cor do fundo para verde claro ao passar o mouse */
+    background-color: #A3E635; /* Muda o fundo para verde claro ao passar o mouse */
     color: #0a0a0a; /* Muda a cor do texto para preto no hover */
 }
 
 /* Dropdown (submenu) */
-/* Define o estilo para os submenus suspensos */
+/* Estilização dos submenus que surgem ao passar o mouse */
 .menu li ul {
-    position: absolute; /* Posiciona o submenu em relação ao item pai */
-    left: 100%; /* Faz o submenu aparecer à direita do item principal */
-    top: 0; /* Alinha o submenu no topo do item pai */
-    display: none; /* Oculta o submenu inicialmente */
-    list-style-type: none; /* Remove os marcadores padrão da lista */
-    padding: 0; /* Remove o padding padrão */
+    position: absolute; /* Posiciona o submenu em relação ao item principal */
+    left: 110%; /* Move o submenu para a direita, para que ele apareça fora do item principal */
+    top: 0; /* Alinha o submenu ao topo do item principal */
+    display: none; /* Inicialmente oculto */
+    list-style-type: none; /* Remove os marcadores padrão do submenu */
+    padding: 0; /* Remove padding padrão */
     margin: 0; /* Remove margens padrão */
 }
 
-/* Exibe o submenu ao passar o mouse sobre o item pai */
+/* Exibe o submenu ao passar o mouse */
 .menu li:hover ul {
     display: block; /* Exibe o submenu */
 }
 
-/* Estiliza os itens dentro do submenu */
+/* Estilização dos itens do submenu */
 .menu li ul li {
-    margin-bottom: 5px; /* Adiciona espaço entre os itens do submenu */
+    margin-bottom: 5px; /* Adiciona espaçamento entre os itens do submenu */
 }
 
 .menu li ul li a {
-    padding: 10px; /* Adiciona espaçamento interno aos itens do submenu */
-    background-color: #2F855A; /* Define o fundo dos itens do submenu como verde escuro */
-    border-radius: 5px; /* Aplica bordas arredondadas */
+    padding: 10px; /* Adiciona espaçamento interno aos links do submenu */
+    background-color: #2F855A; /* Fundo verde escuro */
+    border-radius: 5px; /* Adiciona bordas arredondadas */
     text-align: left; /* Alinha o texto do submenu à esquerda */
-    white-space: nowrap; /* Impede que o texto quebre para a próxima linha */
+    white-space: nowrap; /* Impede que o texto do submenu quebre para a próxima linha */
 }
 
 /* Efeito hover nos itens do submenu */
 .menu li ul li a:hover {
     background-color: #A3E635; /* Muda o fundo para verde claro ao passar o mouse */
     color: #0a0a0a; /* Muda a cor do texto para preto no hover */
+}
+
+/* Ajustes de layout para o submenu */
+/* Reorganiza os submenus */
+.menu li ul {
+    display: flex; /* Usa flexbox para organizar os subitens */
+    flex-direction: column-reverse; /* Organiza os subitens de baixo para cima */
+    right: -120%; /* Afasta os submenus para fora da caixa principal */
 }
 
 /* Slider */
@@ -143,7 +150,7 @@ h1 {
 .slides {
     display: flex; /* Usa flexbox para alinhar os slides em uma linha */
     overflow: hidden; /* Oculta as imagens que estão fora da área visível */
-    transition: transform 0.5s ease-in-out; /* Aplica uma transição suave entre os slides */
+    transition: transform 0.5s ease-in-out; /* Adiciona uma transição suave entre os slides */
 }
 
 .slide {
@@ -157,11 +164,11 @@ h1 {
 }
 
 /* Rodapé */
-/* Estilização do rodapé da página */
+/* Estilização do rodapé */
 .footer {
-    background-color: #2F855A; /* Define o fundo do rodapé como verde escuro */
-    color: white; /* Define a cor do texto do rodapé como branco */
-    text-align: center; /* Centraliza o texto dentro do rodapé */
-    padding: 20px; /* Adiciona espaçamento interno */
+    background-color: #2F855A; /* Fundo verde escuro */
+    color: white; /* Cor do texto branca */
+    text-align: center; /* Centraliza o texto no rodapé */
+    padding: 20px; /* Adiciona espaçamento interno ao rodapé */
     margin-top: auto; /* Garante que o rodapé fique no final da página */
 }
