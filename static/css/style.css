@@ -1,115 +1,167 @@
 /* Reset básico */
-* {
+/* Remove margens e espaçamentos padrões de todos os elementos 
+   para garantir consistência entre diferentes navegadores */
+   * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Garante que padding e bordas sejam inclusos na largura/altura total dos elementos */
 }
 
 /* Definições gerais */
+/* Estilização do corpo da página */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #0a0a0a; /* Fundo preto */
-    color: #fff; /* Texto branco */
+    font-family: Arial, sans-serif; /* Define a fonte da página */
+    background-color: #0a0a0a; /* Define o fundo preto */
+    color: #fff; /* Define o texto branco */
     margin: 0;
     padding: 0;
-    text-align: center;
+    text-align: center; /* Centraliza o texto dentro do body */
+    min-height: 100vh; /* Garante que o corpo ocupe no mínimo 100% da altura da tela */
+    display: flex; /* Usa flexbox para estruturar o layout */
+    flex-direction: column; /* Organiza os elementos em uma coluna */
 }
 
 /* Cabeçalho */
+/* Estilização do cabeçalho da página */
 header {
-    background-color: #2F855A; /* Verde escuro */
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 10px 20px;
+    background-color: #2F855A; /* Define o fundo do cabeçalho como verde escuro */
+    color: white; /* Define a cor do texto como branco */
+    display: flex; /* Usa flexbox para organizar os elementos dentro do cabeçalho */
+    align-items: center; /* Alinha verticalmente os elementos no centro */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    padding: 20px; /* Adiciona espaçamento interno */
 }
 
 .logo-container {
-    display: flex;
-    align-items: center;
-    text-align: left;
+    display: flex; /* Define um layout flex para organizar a logo e o texto */
+    align-items: center; /* Alinha os itens verticalmente no centro */
+    text-align: left; /* Alinha o texto à esquerda */
 }
 
 .logo {
-    width: 100px;
-    height: auto;
-    margin-right: 20px;
+    width: 100px; /* Define a largura da logo */
+    height: auto; /* Mantém a proporção original da logo */
+    margin-right: 20px; /* Adiciona um espaço entre a logo e o título */
 }
 
 h1 {
-    font-size: 2.5em;
-    color: #A3E635; /* Verde claro */
-    text-align: left;
-    margin: 0;
+    font-size: 2.5em; /* Define o tamanho da fonte do título */
+    color: #A3E635; /* Define uma cor verde claro para o título */
+}
+
+/* Container principal com barra lateral e conteúdo */
+/* Define o layout da página com uma barra lateral e uma área de conteúdo principal */
+.container {
+    display: grid; /* Usa CSS Grid para organizar a estrutura em colunas */
+    grid-template-columns: 250px 1fr; /* Define duas colunas: 250px para a barra lateral e 1fr para o conteúdo */
+    gap: 20px; /* Adiciona um espaçamento de 20px entre as colunas */
+    flex-grow: 1; /* Faz o container crescer para preencher o espaço vertical */
+    padding: 20px; /* Adiciona espaçamento interno ao container */
+}
+
+/* Barra lateral colapsável */
+/* Estiliza a barra lateral que pode ser colapsada */
+.sidebar {
+    background-color: #38A169; /* Define o fundo da barra lateral como verde claro */
+    padding: 20px; /* Adiciona espaçamento interno */
+    transition: all 0.3s ease; /* Aplica uma transição suave ao colapsar/expandir */
 }
 
 /* Menu de navegação */
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    background-color: #38A169; /* Verde claro */
+/* Estilização da lista de navegação no menu lateral */
+.menu {
+    list-style-type: none; /* Remove os marcadores padrão das listas */
+    padding: 0; /* Remove o padding padrão da lista */
 }
 
-nav ul li {
-    margin: 0 15px;
+/* Estilo dos itens do menu */
+.menu li {
+    margin-bottom: 10px; /* Adiciona um espaço entre cada item do menu */
+    position: relative; /* Define a posição relativa para que o submenu seja posicionado corretamente */
 }
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.2em;
-    font-weight: bold;
+.menu li a {
+    color: white; /* Define a cor do texto dos links como branco */
+    text-decoration: none; /* Remove o sublinhado dos links */
+    display: block; /* Faz o link ocupar toda a área do item do menu */
+    padding: 10px; /* Adiciona espaçamento interno ao link */
+    background-color: #2F855A; /* Define o fundo dos links como verde escuro */
+    border-radius: 5px; /* Aplica bordas arredondadas */
+    text-align: center; /* Centraliza o texto do link */
+    transition: background-color 0.3s ease; /* Aplica uma transição suave no hover */
 }
 
-nav ul li a:hover {
-    color: #A3E635;
+/* Efeito hover nos links do menu */
+.menu li a:hover {
+    background-color: #A3E635; /* Muda a cor do fundo para verde claro ao passar o mouse */
+    color: #0a0a0a; /* Muda a cor do texto para preto no hover */
+}
+
+/* Dropdown (submenu) */
+/* Define o estilo para os submenus suspensos */
+.menu li ul {
+    position: absolute; /* Posiciona o submenu em relação ao item pai */
+    left: 100%; /* Faz o submenu aparecer à direita do item principal */
+    top: 0; /* Alinha o submenu no topo do item pai */
+    display: none; /* Oculta o submenu inicialmente */
+    list-style-type: none; /* Remove os marcadores padrão da lista */
+    padding: 0; /* Remove o padding padrão */
+    margin: 0; /* Remove margens padrão */
+}
+
+/* Exibe o submenu ao passar o mouse sobre o item pai */
+.menu li:hover ul {
+    display: block; /* Exibe o submenu */
+}
+
+/* Estiliza os itens dentro do submenu */
+.menu li ul li {
+    margin-bottom: 5px; /* Adiciona espaço entre os itens do submenu */
+}
+
+.menu li ul li a {
+    padding: 10px; /* Adiciona espaçamento interno aos itens do submenu */
+    background-color: #2F855A; /* Define o fundo dos itens do submenu como verde escuro */
+    border-radius: 5px; /* Aplica bordas arredondadas */
+    text-align: left; /* Alinha o texto do submenu à esquerda */
+    white-space: nowrap; /* Impede que o texto quebre para a próxima linha */
+}
+
+/* Efeito hover nos itens do submenu */
+.menu li ul li a:hover {
+    background-color: #A3E635; /* Muda o fundo para verde claro ao passar o mouse */
+    color: #0a0a0a; /* Muda a cor do texto para preto no hover */
 }
 
 /* Slider */
+/* Estilização do carrossel de imagens */
 .slider {
-    position: relative;
-    width: 100%;
-    max-width: 1000px;
-    margin: 20px auto;
-    overflow: hidden;
-    border-radius: 10px;
+    max-width: 800px; /* Define uma largura máxima para o slider */
+    margin: 20px auto; /* Centraliza o slider e adiciona espaçamento superior e inferior */
 }
 
 .slides {
-    display: flex;
-    width: 400%; /* 4 imagens no total */
-    animation: slide 20s infinite; /* Tempo total da animação ajustado para 20s */
+    display: flex; /* Usa flexbox para alinhar os slides em uma linha */
+    overflow: hidden; /* Oculta as imagens que estão fora da área visível */
+    transition: transform 0.5s ease-in-out; /* Aplica uma transição suave entre os slides */
 }
 
 .slide {
-    width: 100%;
-    transition: transform 1s ease-in-out;
+    min-width: 100%; /* Garante que cada slide ocupe 100% da área visível */
 }
 
 .slide img {
-    width: 100%;
-    height: auto;
-}
-
-/* Animação de transição automática */
-@keyframes slide {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-100%); }
-    50% { transform: translateX(-200%); }
-    75% { transform: translateX(-300%); }
-    100% { transform: translateX(0); }
+    width: 100%; /* Faz a imagem ocupar toda a largura do slide */
+    height: auto; /* Ajusta a altura automaticamente para manter a proporção */
+    object-fit: cover; /* Faz a imagem preencher o slide sem distorções */
 }
 
 /* Rodapé */
-footer {
-    background-color: #2F855A;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+/* Estilização do rodapé da página */
+.footer {
+    background-color: #2F855A; /* Define o fundo do rodapé como verde escuro */
+    color: white; /* Define a cor do texto do rodapé como branco */
+    text-align: center; /* Centraliza o texto dentro do rodapé */
+    padding: 20px; /* Adiciona espaçamento interno */
+    margin-top: auto; /* Garante que o rodapé fique no final da página */
 }
